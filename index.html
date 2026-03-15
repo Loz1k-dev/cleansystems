@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Очищення інженерних систем | Ірина Саєнко</title>
+    <style>
+        /* Базовые настройки и цвета */
+        :root {
+            --primary-color: #2c3e50; /* Темно-синий цвет */
+            --accent-color: #007bff;  /* Синий для кнопок (можно поменять на свой) */
+            --bg-light: #f8f9fa;      /* Светлый фон для блоков */
+            --text-dark: #333;
+            --text-light: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+        }
+
+        /* Шапка сайта (Меню) */
+        header {
+            background-color: var(--text-light);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Главный экран */
+        .hero {
+            /* Вместо 'https://via.placeholder.com/1920x1080' вставь ссылку на свою фоновую картинку */
+            background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.7)), url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
+            color: var(--text-light);
+            text-align: center;
+            padding: 120px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        /* Общие стили для секций */
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--primary-color);
+        }
+
+        /* Сетка услуг */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--bg-light);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        /* Этапы работы */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        /* Контакты */
+        .contacts {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .contacts .section-title {
+            color: var(--text-light);
+        }
+
+        .contact-info {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: #1a252f;
+            color: #aaa;
+            text-align: center;
+            padding: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Адаптивность для мобильных телефонов */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Скрываем меню на узких экранах для простоты */
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Ірина Саєнко</div>
+        <nav>
+            <ul>
+                <li><a href="#services">Послуги</a></li>
+                <li><a href="#process">Процес роботи</a></li>
+                <li><a href="#contacts">Контакти</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Експертні рішення для інженерних систем</h1>
+        <p>Комплексні послуги з очищення систем водопостачання, господарсько-побутової та зливової каналізації, систем теплозабезпечення та опалення.</p>
+        <a href="#contacts" class="btn">Зв'язатися зі мною</a>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title">Комплексні послуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Очищення систем водопостачання</h3>
+                <p>Очищення резервуарів чистої води, водозабірних свердловин та магістральних водогонів.</p>
+            </div>
+            <div class="service-card">
+                <h3>Очищення систем каналізації</h3>
+                <p>Очищення КНС, відстійників, зливоприймачів та трубопроводів для безпеки та безперебійного водовідведення.</p>
+            </div>
+            <div class="service-card">
+                <h3>Очищення систем теплозабезпечення</h3>
+                <p>Очищення котлів, теплообмінників та теплотрас — прямий шлях до максимальної ефективності.</p>
+            </div>
+            <div class="service-card">
+                <h3>Очищення систем опалення</h3>
+                <p>Очищення радіаторів, трубопроводів та запірної арматури для відновлення теплової віддачі.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" style="background-color: var(--bg-light);">
+        <h2 class="section-title">Робочий процес проєкту</h2>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Попередня оцінка</h3>
+                <p>Аналіз потреб системи, огляд об'єктів та визначення обсягу робіт.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Детальне планування</h3>
+                <p>Розробка індивідуальних рішень, складання графіків та надання прозорих кошторисів.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Реалізація проєкту</h3>
+                <p>Виконання робіт силами кваліфікованих спеціалістів із дотриманням вимог безпеки.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacts" class="contacts">
+        <h2 class="section-title">Зв'яжіться зі мною</h2>
+        <p style="max-width: 700px; margin: 0 auto 40px; font-size: 1.2rem;">
+            Я готова відповісти на ваші запитання та обговорити можливості співпраці, щоб знайти оптимальні рішення для ваших проєктів.
+        </p>
+        <div class="contact-info">📞 <a href="tel:0503320389">050 332 03 89</a></div>
+        <div class="contact-info">✉️ <a href="mailto:khm@ukrgidro.com">khm@ukrgidro.com</a></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Інженерні рішення | Усі права захищено</p>
+    </footer>
+
+</body>
+</html>
