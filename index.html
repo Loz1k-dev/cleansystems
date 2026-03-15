@@ -3,127 +3,385 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Блок Менеджера</title>
+    <title>Менеджер Ірина Саєнко | Експертні рішення для інженерних систем</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet">
+
     <style>
-        /* Базовый сброс стилей для красоты */
+        /* --- Базовые настройки --- */
+        :root {
+            --bg-dark: #292929;
+            --bg-darker: #0f0f10;
+            --bg-black: #060606;
+            --bg-blue: #20296f;
+            --btn-blue: #0070c0;
+            --btn-light-blue: #1f5bff;
+            --text-white: #ffffff;
+            --text-black: #000000;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        /* --- Стили конкретно для этого блока --- */
-        .manager-section {
-            background-color: #20296f; /* Тот самый темно-синий фон из твоего кода */
-            padding: 135px 5%;
-            color: #ffffff;
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.5;
+            scroll-behavior: smooth;
         }
 
-        .manager-container {
+        a { text-decoration: none; color: inherit; }
+        
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap; /* Позволяет блокам переноситься на телефонах */
-            align-items: center;
-            gap: 50px;
+            padding: 0 20px;
         }
 
-        .manager-content {
-            flex: 1;
-            min-width: 300px;
+        .section-padding {
+            padding: 135px 0;
         }
 
-        .manager-name {
+        .section-title {
+            text-align: center;
             font-size: 2rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .manager-title {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            opacity: 0.9;
-        }
-
-        .manager-divider {
-            width: 80px;
-            height: 3px;
-            background-color: #0070c0; /* Голубая разделительная полоса */
-            border: none;
+            font-weight: 700;
             margin-bottom: 30px;
         }
 
-        .manager-bio p {
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            opacity: 0.9;
+        }
+
+        /* --- Шапка (Меню) --- */
+        header {
+            background-color: rgba(38, 46, 142, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo { font-weight: 700; font-size: 1.1rem; }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a:hover { opacity: 0.7; }
+
+        /* --- Главный экран (Hero) --- */
+        .hero {
+            padding-top: 180px;
+            padding-bottom: 100px;
+            background-color: var(--bg-dark);
+        }
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text { flex: 1; min-width: 300px; }
+        .hero-image { flex: 1; min-width: 300px; }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            height: 70vh;
+            object-fit: cover;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        .hero h1 strong { font-weight: 900; }
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--btn-blue);
+            color: var(--text-white);
+            padding: 15px 40px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: transform 0.2s, background 0.2s;
+        }
+        .btn:hover { background-color: #0056b3; transform: scale(1.05); }
+
+        /* --- Услуги --- */
+        .services { background-color: var(--bg-dark); }
+        
+        .service-row {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+        }
+        
+        /* Чередование картинка-текст, текст-картинка */
+        .service-row:nth-child(even) { flex-direction: row-reverse; }
+
+        .service-img { flex: 1; min-width: 300px; }
+        .service-text { flex: 1; min-width: 300px; }
+        
+        .service-img img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        .service-text h3 {
+            font-size: 1.5rem;
             margin-bottom: 15px;
-            line-height: 1.6;
-            font-size: 1rem;
         }
 
-        .manager-bio a {
-            color: #0070c0;
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
+        /* --- Блок Менеджера --- */
+        .manager { background-color: var(--bg-blue); }
+        
+        .manager-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
         }
-
-        .manager-bio a:hover {
-            color: #4da3ff;
-            text-decoration: underline;
-        }
-
-        .manager-image {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .manager-image img {
+        .manager-text { flex: 1; min-width: 300px; }
+        .manager-img { flex: 1; min-width: 300px; text-align: center; }
+        
+        .manager-img img {
             width: 100%;
             max-width: 500px;
-            height: auto;
-            border-radius: 15px; /* Скругленные углы фото из Тильды */
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            display: block;
-            margin: 0 auto;
+            border-radius: 15px;
+        }
+        .manager-divider {
+            width: 80px;
+            height: 3px;
+            background-color: var(--btn-blue);
+            border: none;
+            margin: 20px 0;
+        }
+        .manager-text p { margin-bottom: 15px; }
+        .manager-text a { font-weight: bold; text-decoration: underline; }
+
+        /* --- Процесс работы --- */
+        .process { background-color: var(--bg-black); }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
 
-        /* Адаптивность для мобильных телефонов */
+        .process-card {
+            background-color: var(--text-white);
+            color: var(--text-black);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 3px solid #0c0c0c;
+            text-align: center;
+        }
+        .process-card h3 { margin-bottom: 15px; font-size: 1.2rem; }
+
+        /* --- География --- */
+        .geography {
+            background-color: var(--bg-blue);
+            text-align: center;
+        }
+        .btn-rounded {
+            background-color: var(--btn-light-blue);
+            border-radius: 30px;
+        }
+
+        /* --- Контакты и Подвал --- */
+        .contacts { background-color: var(--bg-darker); }
+        .contacts-info { text-align: center; font-size: 1.2rem; margin-top: 30px; }
+        
+        footer {
+            background-color: var(--bg-dark);
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* Адаптивность для телефонов */
         @media (max-width: 768px) {
-            .manager-section {
-                padding: 60px 20px; /* Уменьшаем отступы на телефоне */
-            }
-            .manager-container {
-                flex-direction: column; /* Ставим текст над картинкой */
-                gap: 30px;
-            }
+            .nav-links { display: none; } /* Скрываем меню для простоты */
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1.2rem; }
+            .section-padding { padding: 80px 0; }
         }
     </style>
 </head>
 <body>
 
-    <section class="manager-section">
-        <div class="manager-container">
-            
-            <div class="manager-content">
-                <h2 class="manager-name">Ірина Саєнко</h2>
-                <p class="manager-title">Менеджер</p>
-                
-                <hr class="manager-divider">
-                
-                <div class="manager-bio">
-                    <p>Як менеджер з роботи з клієнтами, я спеціалізуюсь на побудові довгострокових і довірчих відносин із замовниками, глибоко занурююсь у їхні потреби та забезпечую ефективну комунікацію на всіх етапах співпраці. Моя роль охоплює супровід проєктів від первинної консультації та формування технічних вимог до фінальної реалізації та оцінки результатів.</p>
-                    <p>У межах співпраці з компанією <strong><a href="https://energyxxi.com.ua/" target="_blank">«Енергія ХХІ»</a></strong> я займаюсь розвитком партнерської мережі — залученням нових партнерів та посиленням взаємодії з наявними. Забезпечую координацію проєктних процесів, контроль виконання технічних завдань, дотримання термінів і високий рівень комунікації між замовниками та командою, що дозволяє досягати узгоджених результатів і підтримувати довготривалу співпрацю.</p>
-                    <p>У роботі керуюся принципами прозорості, системного підходу та уваги до деталей, що сприяє успішній реалізації складних інженерних рішень і сталому розвитку партнерських відносин.</p>
-                    <p>Ознайомитися з компанією та реалізованими проєктами можна на сайті компанії <a href="https://energyxxi.com.ua/" target="_blank">"Енергія ХХІ"</a></p>
+    <header>
+        <div class="nav-container">
+            <div class="logo">Очищення інженерних систем</div>
+            <ul class="nav-links">
+                <li><a href="#services">Послуги</a></li>
+                <li><a href="#portfolio">Портфоліо</a></li>
+                <li><a href="#contacts">Контакти</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-container">
+            <div class="hero-text">
+                <h1><strong>Менеджер</strong><br><strong>Ірина Саєнко</strong><br><br><span style="font-size: 28px;">Експертні рішення для інженерних систем</span></h1>
+                <p>Комплексні послуги з очищення систем водопостачання, господарсько-побутової та зливової каналізації, систем теплозабезпечення та опалення</p>
+                <a href="#services" class="btn">Послуги</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://static.tildacdn.one/tild6431-3237-4133-b831-626261363963/photo-1492962827063-.jpg" alt="Інженерні системи">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services section-padding">
+        <div class="container">
+            <h2 class="section-title">Комплексні послуги для інженерних комунікацій</h2>
+            <p class="section-subtitle">Підвищте продуктивність і ресурс ваших комунальних систем. Зробіть перший крок зараз.</p>
+
+            <div class="service-row">
+                <div class="service-img">
+                    <img src="https://static.tildacdn.one/tild3334-6637-4032-b566-643136653266/photo-1693907986952-.jpg" alt="Очищення водопостачання">
+                </div>
+                <div class="service-text">
+                    <h3>Очищення систем водопостачання</h3>
+                    <p>Очищення резервуарів чистої води, водозабірних свердловин та магістральних водогонів є обов'язковою умовою для підтримки високої якості питної води та продовження ресурсу експлуатації обладнання.</p>
                 </div>
             </div>
 
-            <div class="manager-image">
-                <img src="https://static.tildacdn.one/tild6232-6431-4333-a362-626634616138/photo_2025-11-12_19-.jpg" alt="Ірина Саєнко - Менеджер">
+            <div class="service-row">
+                <div class="service-img">
+                    <img src="https://static.tildacdn.one/tild3637-6361-4235-b862-633365306533/photo-1671250973481-.jpg" alt="Очищення каналізації">
+                </div>
+                <div class="service-text">
+                    <h3>Очищення систем господарсько-побутової та зливової каналізації</h3>
+                    <p>Очищення каналізаційно-насосних станцій (КНС), відстійників, зливоприймачів та трубопроводів є життєво необхідним для запобігання засміченням, підтримки санітарно-епідеміологічної безпеки.</p>
+                </div>
             </div>
 
+            <div class="service-row">
+                <div class="service-img">
+                    <img src="https://static.tildacdn.one/tild3039-3236-4439-b936-653930313736/photo-1618840626133-.jpg" alt="Очищення теплозабезпечення">
+                </div>
+                <div class="service-text">
+                    <h3>Очищення систем теплозабезпечення</h3>
+                    <p>Очищення котлів, теплообмінників та теплотрас — це прямий шлях до максимальної теплової ефективності обладнання та гарантує зниження експлуатаційних витрат на споживання палива й електроенергії.</p>
+                </div>
+            </div>
+
+            <div class="service-row">
+                <div class="service-img">
+                    <img src="https://static.tildacdn.one/tild3066-3135-4864-b965-366531383665/photo-1669725341213-.jpg" alt="Очищення систем опалення">
+                </div>
+                <div class="service-text">
+                    <h3>Очищення систем опалення</h3>
+                    <p>Очищення трубопроводів, радіаторів, засувок (запірної арматури) та елеваторних вузлів — це критично необхідний етап для відновлення теплової віддачі та продовження терміну служби опалювального обладнання.</p>
+                </div>
+            </div>
         </div>
     </section>
+
+    <section id="portfolio" class="manager section-padding">
+        <div class="container manager-container">
+            <div class="manager-text">
+                <h2>Ірина Саєнко</h2>
+                <p style="font-size: 1.2rem; opacity: 0.9;">Менеджер</p>
+                <hr class="manager-divider">
+                <p>Як менеджер з роботи з клієнтами, я спеціалізуюсь на побудові довгострокових і довірчих відносин із замовниками, глибоко занурююсь у їхні потреби та забезпечую ефективну комунікацію на всіх етапах співпраці.</p>
+                <p>У межах співпраці з компанією <strong><a href="https://energyxxi.com.ua/" target="_blank">«Енергія ХХІ»</a></strong> я займаюсь розвитком партнерської мережі. Забезпечую координацію проєктних процесів, контроль виконання технічних завдань і високий рівень комунікації.</p>
+                <p>Ознайомитися з компанією та реалізованими проєктами можна на сайті компанії <a href="https://energyxxi.com.ua/" target="_blank">"Енергія ХХІ"</a></p>
+            </div>
+            <div class="manager-img">
+                <img src="https://static.tildacdn.one/tild6232-6431-4333-a362-626634616138/photo_2025-11-12_19-.jpg" alt="Ірина Саєнко">
+            </div>
+        </div>
+    </section>
+
+    <section class="process section-padding">
+        <div class="container">
+            <h2 class="section-title">Робочий процес проєкту</h2>
+            <p class="section-subtitle">Застосування комплексного підходу гарантує не лише ефективне, але й високопродуктивне обслуговування системи, яке відповідає всім експлуатаційним вимогам.</p>
+            
+            <div class="process-grid">
+                <div class="process-card">
+                    <h3>Попередня оцінка</h3>
+                    <p>Проаналізувати потреби системи, провести огляд об'єктів та визначити обсяг робіт.</p>
+                </div>
+                <div class="process-card">
+                    <h3>Детальне планування</h3>
+                    <p>Розробити індивідуальні рішення, скласти графіки та надати прозорі кошториси.</p>
+                </div>
+                <div class="process-card">
+                    <h3>Реалізація проєкту</h3>
+                    <p>Виконати очищення, відновлення та ремонт силами кваліфікованих спеціалістів, дотримуючись вимог безпеки.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="geography section-padding">
+        <div class="container">
+            <h2 class="section-title">Географія надання послуг</h2>
+            <p class="section-subtitle">«Надаємо послуги у всіх регіонах України. Працюємо як із комунальними підприємствами, так і з приватними замовниками. Виїзд фахівців можливий у найкоротші терміни, з урахуванням потреб об'єкта та технічних умов»</p>
+            <a href="#" class="btn btn-rounded">Зона обслуговування</a>
+        </div>
+    </section>
+
+    <section id="contacts" class="contacts section-padding">
+        <div class="container">
+            <h2 class="section-title">Зв'яжіться зі мною</h2>
+            <p class="section-subtitle">Я готова відповісти на ваші запитання та обговорити можливості співпраці, щоб знайти оптимальні рішення для ваших проєктів</p>
+            
+            <div class="contacts-info">
+                <p>Телефон: <a href="tel:0503320389">050 332 03 89</a></p>
+                <p>Електронна пошта: <a href="mailto:khm@ukrgidro.com">khm@ukrgidro.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>2024 - Інженерні рішення | Усі права захищено</p>
+        </div>
+    </footer>
 
 </body>
 </html>
