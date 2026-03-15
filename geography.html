@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Географія надання послуг | Ірина Саєнко</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Базові стилі */
+        :root {
+            --bg-dark: #101112;
+            --bg-blue: #062b93;
+            --text-white: #fbf3f3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-white);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Шапка з меню (спрощена для другорядних сторінок) */
+        header {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            padding: 30px 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #fd836c;
+        }
+
+        /* Обкладинка сторінки (Hero) */
+        .cover {
+            height: 60vh;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://static.tildacdn.one/tild3233-6432-4332-a539-303733363838/Gemini_Generated_Ima.png') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .cover h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Синій блок з текстом */
+        .preface {
+            background-color: var(--bg-blue);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        /* Список міст */
+        .cities-list {
+            padding: 100px 0;
+            font-size: 1.2rem;
+        }
+
+        .cities-list p {
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .cities-list ul {
+            list-style-position: inside;
+            column-count: 2; /* Робимо список у дві колонки на великих екранах */
+            column-gap: 40px;
+        }
+
+        .cities-list li {
+            margin-bottom: 10px;
+        }
+
+        /* Адаптивність */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .cover h1 { font-size: 2rem; }
+            .cities-list ul { column-count: 1; } /* На телефоні список в одну колонку */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">Ірина Саєнко <br>Експертні рішення для інженерних систем</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="index.html#services">Послуги</a></li>
+                <li><a href="index.html#portfolio">Портфоліо</a></li>
+                <li><a href="index.html#contacts">Контакти</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="cover">
+        <h1>Географія надання послуг</h1>
+    </section>
+
+    <section class="preface">
+        <div class="container">
+            <p>«Надаємо послуги у всіх регіонах України. Працюємо як із комунальними підприємствами, так і з приватними замовниками. Виїзд фахівців можливий у найкоротші терміни, з урахуванням потреб об'єкта та технічних умов»</p>
+        </div>
+    </section>
+
+    <section class="cities-list">
+        <div class="container">
+            <p>Комплексні послуги з очищення (чистки) систем водопостачання, господарсько-побутової та зливової каналізації, систем теплозабезпечення та опалення:</p>
+            <ul>
+                <li>м. Київ та Київська область</li>
+                <li>м. Житомир та Житомирська область</li>
+                <li>м. Вінниця та Вінницька область</li>
+                <li>м. Черкаси та Черкаська область</li>
+                <li>м. Полтава та Полтавська область</li>
+                <li>м. Чернігів та Чернігівська область</li>
+                <li>м. Кропивницький та Кіровоградська область</li>
+                <li>м. Хмельницький та Хмельницька область</li>
+                <li>м. Львів та Львівська область</li>
+                <li>м. Тернопіль та Тернопільська область</li>
+                <li>м. Івано-Франківськ та Івано-Франківська область</li>
+                <li>м. Рівне та Рівненська область</li>
+                <li>м. Луцьк та Волинська область</li>
+                <li>м. Ужгород та Закарпатська область</li>
+                <li>м. Миколаїв та Миколаївська область</li>
+                <li>м. Херсон та Херсонська область</li>
+                <li>м. Дніпро та Дніпропетровська область</li>
+                <li>м. Запоріжжя та Запорізька область</li>
+                <li>м. Одеса та Одеська область</li>
+                <li>м. Суми та Сумська область</li>
+                <li>м. Чернівці та Чернівецька область</li>
+                <li>м. Харків та Харківська область</li>
+            </ul>
+        </div>
+    </section>
+
+</body>
+</html>
